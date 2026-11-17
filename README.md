@@ -1,6 +1,10 @@
 # Token Radar
 
-A pre-token launch radar built on make.fun's sealed protocol snapshot. Every protocol that records no token is scored from its own record — TVL, seven-day change, age, category, chains and record completeness — ranked by an implied launch value, and given a concrete farm plan with costs and timings.
+[![make.fun · token-radar-01](https://make.fun/badge/token-radar-01.svg)](https://make.fun/bounty/token-radar-01?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
+[![rank](https://make.fun/badge/token-radar-01/Maxigucci/token-radar-01/rank.svg)](https://make.fun/bounty/token-radar-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
+[![reward](https://make.fun/badge/token-radar-01/Maxigucci/token-radar-01/reward.svg)](https://make.fun/bounty/token-radar-01?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
+
+A pre-token launch radar built on make.fun's sealed protocol snapshot. Every protocol that records no token is scored from its own record — TVL, seven-day change, age, category, chains and record completeness — ranked by an implied launch value, and given a concrete farm plan with costs and timings. Entered in make.fun's [Build the best token launch radar](https://make.fun/bounty/token-radar-01) bounty.
 
 ![Token Radar board](screenshots/1-board.png)
 

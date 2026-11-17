@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="data:,">
+<title>Token Radar — pre-token protocols ranked by implied launch value</title>
+<meta name="description" content="A radar for protocols that record no token yet: ranked by an implied launch value computed from TVL, seven-day change, age, category and chains, each with a concrete farm plan.">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<a class="skip" href="#board">Skip to the board</a>
+<div class="shell">
+  <header class="top">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"><span class="sweep"></span></span>
+      <div>
+        <h1>Token<span class="thin">Radar</span></h1>
+        <p class="tagline">Pre-token protocols, priced before the token exists.</p>
+      </div>
+    </div>
+    <div class="top-meta">
+      <span id="as-of">snapshot</span>
+      <span class="sep" aria-hidden="true"></span>
+      <span class="live-dot" aria-hidden="true"></span>
+      <span>offline snapshot</span>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow">Launch watch · <span id="model-version">model</span></p>
+      <h2 id="hero-title">Every protocol that records no token, ranked by what its launch could be worth.</h2>
+      <p class="lede">
+        The value is derived from the snapshot's own figures — TVL, seven-day change, how long the protocol
+        has run without a token, its category and its chains. Each row carries the arithmetic and a farm
+        plan with what it costs and how long it takes.
+      </p>
+    </div>
+    <div class="stats" id="stats" aria-label="Snapshot totals"></div>
+  </section>
+
+  <section class="signals" id="signals" aria-label="Signals from the board"></section>
+
+  <section class="controls" aria-label="Filter the board">
+    <div class="tabs" role="tablist" aria-label="Views">
+      <button type="button" role="tab" id="tab-board" aria-selected="true" aria-controls="board-panel">Pre-token board</button>
+      <button type="button" role="tab" id="tab-live" aria-selected="false" aria-controls="live-panel">Live tokens</button>
+    </div>
+    <label class="field search">
+      <span>Search</span>
+      <input id="q" type="search" placeholder="Name, category or chain" autocomplete="off" spellcheck="false">
+    </label>
+    <label class="field">
+      <span>Category</span>
+      <select id="category"><option value="all">All categories</option></select>
+    </label>
+    <label class="check">
+      <input id="watch-only" type="checkbox">
+      <span>Watchlist only</span>
+    </label>
+    <label class="field">
+      <span>Sort</span>
+      <select id="sort">
+        <option value="implied">Implied value</option>
+        <option value="tvl">TVL</option>
+        <option value="growth">7-day change</option>
+        <option value="age">Age</option>
+        <option value="name">Name</option>
+      </select>
+    </label>
+    <p class="count" id="count" aria-live="polite"></p>
+  </section>
+
+  <section class="panel" id="board-panel" role="tabpanel" aria-labelledby="tab-board">
+    <div class="table-wrap">
+      <table id="board">
+        <thead>
+          <tr>
+            <th class="c-rank" scope="col">#</th>
+            <th class="c-name" scope="col">Protocol</th>
+            <th class="c-cat" scope="col">Category</th>
+            <th class="c-num" scope="col">TVL</th>
+            <th class="c-num" scope="col">7d</th>
+            <th class="c-num" scope="col">Age</th>
+            <th class="c-value" scope="col">Implied value</th>
+            <th class="c-open" scope="col"><span class="visually-hidden">Open</span></th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <p class="empty" id="empty" hidden>No protocol matches those filters.</p>
+  </section>
+
+  <section class="panel" id="live-panel" role="tabpanel" aria-labelledby="tab-live" hidden>
+    <div class="panel-head">
+      <h3>Already trading</h3>
+      <p>Protocols whose token exists. They are kept off the ranked board and shown at the market's own value.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th class="c-name" scope="col">Protocol</th>
+            <th class="c-cat" scope="col">Category</th>
+            <th class="c-num" scope="col">TVL</th>
+            <th class="c-num" scope="col">Market cap</th>
+            <th class="c-num" scope="col">Mcap / TVL</th>
+            <th class="c-num" scope="col">7d</th>
+          </tr>
+        </thead>
+        <tbody id="live-rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p id="foot-source">Source</p>
+    <p class="foot-model" id="foot-model"></p>
+    <p class="foot-note">No network at run time: every figure on this page is computed from the sealed snapshot shipped with the entry.</p>
+  </footer>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="detail" aria-hidden="true" aria-label="Protocol detail"></aside>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

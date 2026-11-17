@@ -78,8 +78,8 @@ for (const name of shotNames) {
   }
 }
 
-rmSync(out, { recursive: true, force: true });
 mkdirSync(out, { recursive: true });
+for (const name of readdirSync(out)) rmSync(join(out, name), { recursive: true, force: true });
 writeFileSync(join(out, 'board.json'), `${JSON.stringify({ rows: board })}\n`);
 writeFileSync(join(out, 'data.js'), dataScript(radar));
 const dashNames = copyFlat(join(here, 'dashboard'), join(out, 'dashboard'));
